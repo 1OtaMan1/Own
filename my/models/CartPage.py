@@ -3,14 +3,25 @@ from models.LoginPage import LoginPage
 
 
 class CartPage:
-    driver = MyDriver()
+    # driver = MyDriver()
+    login_page = LoginPage()
+
+    def add_mac_to_cart(self):
+        self.login_page.driver.driver.find_element_by_xpath('//*[@id="menu"]/div[2]/ul/li[1]/a').click()
+        self.login_page.driver.driver.find_element_by_xpath('//*[@id="menu"]/div[2]/ul/li[1]/div/div/ul/li[2]/a').click()
+        self.login_page.driver.driver.find_element_by_xpath('//*[@id="content"]/div[2]/div/div/div[1]/a/img').click()
+        self.login_page.driver.driver.find_element_by_id("button-cart").click()
 
     def go_to_cart(self):
-        login_page = LoginPage()
-        # self.driver.go_to_home()
-        # self.driver.driver.find_element_by_xpath('//*[@id="top-links"]/ul/li[2]/a').click()
-        # self.driver.driver.find_element_by_xpath('//*[@id="top-links"]/ul/li[2]/ul/li[2]/a').click()
-        # self.driver.driver.find_element_by_id("input-email").send_keys(email)
-        # self.driver.driver.find_element_by_id("input-password").send_keys(password)
-        # self.driver.driver.find_element_by_class_name("btn-primary").click()
-        self.driver.driver.find_element_by_class_name("fa-shopping-cart").click()
+        self.login_page.driver.driver.find_element_by_class_name("fa-shopping-cart").click()
+        self.login_page.driver.driver.refresh()
+
+    def edit_good_qty(self):
+        self.login_page.driver.driver.find_element_by_class_name("fa-shopping-cart").click()
+        self.login_page.driver.driver.find_element_by_name("quantity").send_keys('2')
+
+
+page = CartPage()
+page.add_mac_to_cart()
+page.go_to_cart()
+page.edit_good_qty()

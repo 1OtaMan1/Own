@@ -9,15 +9,15 @@ class LoginPage:
         self.driver.driver.find_element_by_xpath('//*[@id="top-links"]/ul/li[2]/a').click()
         self.driver.driver.find_element_by_xpath('//*[@id="top-links"]/ul/li[2]/ul/li[2]/a').click()
 
-    def input_email(self, email):
-        self.driver.driver.find_element_by_id("input-email").send_keys(email)
-    # def input_email(self):
-    #     self.driver.driver.find_element_by_id("input-email").send_keys('oleksandr.makar.ol@gmail.com')
+    # def input_email(self, email):
+    #     self.driver.driver.find_element_by_id("input-email").send_keys(email)
+    def input_email(self):
+        self.driver.driver.find_element_by_id("input-email").send_keys('oleksandr.makar.ol@gmail.com')
 
-    def input_password(self, password):
-        self.driver.driver.find_element_by_id("input-password").send_keys(password)
-    # def input_password(self):
-    #     self.driver.driver.find_element_by_id("input-password").send_keys('saxon123')
+    # def input_password(self, password):
+    #     self.driver.driver.find_element_by_id("input-password").send_keys(password)
+    def input_password(self):
+        self.driver.driver.find_element_by_id("input-password").send_keys('saxon123')
 
     def login(self):
         self.driver.driver.find_element_by_xpath('//*[@id="content"]/div/div[2]/div/form/input').click()
